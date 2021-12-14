@@ -1,0 +1,115 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of case5</title>
+  <meta name="keywords" content="case5">
+  <meta name="description" content="CASE5  Power flow data for modified 5 bus, 5 gen case based on PJM 5-bus system">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html v1.5 &copy; 2003-2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../m2html.css">
+</head>
+<body>
+<a name="_top"></a>
+<div><a href="../menu5.0.html">Home</a> &gt;  <a href="menu5.0.html">matpower5.0</a> &gt; case5.m</div>
+
+<!--<table width="100%"><tr><td align="left"><a href="../menu5.0.html"><img alt="<" border="0" src="../left.png">&nbsp;Master index</a></td>
+<td align="right"><a href="menu5.0.html">Index for matpower5.0&nbsp;<img alt=">" border="0" src="../right.png"></a></td></tr></table>-->
+
+<h1>case5
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>CASE5  Power flow data for modified 5 bus, 5 gen case based on PJM 5-bus system</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>function mpc = case5 </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre class="comment">CASE5  Power flow data for modified 5 bus, 5 gen case based on PJM 5-bus system
+   Please see CASEFORMAT for details on the case file format.
+
+   Based on data from ...
+     F.Li and R.Bo, &quot;Small Test Systems for Power System Economic Studies&quot;,
+     Proceedings of the 2010 IEEE Power &amp; Energy Society General Meeting</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../matlabicon.gif)">
+</ul>
+This function is called by:
+<ul style="list-style-image:url(../matlabicon.gif)">
+</ul>
+<!-- crossreference -->
+
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function mpc = case5</a>
+0002 <span class="comment">%CASE5  Power flow data for modified 5 bus, 5 gen case based on PJM 5-bus system</span>
+0003 <span class="comment">%   Please see CASEFORMAT for details on the case file format.</span>
+0004 <span class="comment">%</span>
+0005 <span class="comment">%   Based on data from ...</span>
+0006 <span class="comment">%     F.Li and R.Bo, &quot;Small Test Systems for Power System Economic Studies&quot;,</span>
+0007 <span class="comment">%     Proceedings of the 2010 IEEE Power &amp; Energy Society General Meeting</span>
+0008 
+0009 <span class="comment">%   Created by Rui Bo in 2006, modified in 2010, 2014.</span>
+0010 <span class="comment">%   Distributed with permission.</span>
+0011 
+0012 <span class="comment">%   MATPOWER</span>
+0013 <span class="comment">%   $Id: case5.m 2408 2014-10-22 20:41:33Z ray $</span>
+0014 
+0015 <span class="comment">%% MATPOWER Case Format : Version 2</span>
+0016 mpc.version = <span class="string">'2'</span>;
+0017 
+0018 <span class="comment">%%-----  Power Flow Data  -----%%</span>
+0019 <span class="comment">%% system MVA base</span>
+0020 mpc.baseMVA = 100;
+0021 
+0022 <span class="comment">%% bus data</span>
+0023 <span class="comment">%    bus_i    type    Pd    Qd    Gs    Bs    area    Vm    Va    baseKV    zone    Vmax    Vmin</span>
+0024 mpc.bus = [
+0025     1    2    0    0    0    0    1    1    0    230    1    1.1    0.9;
+0026     2    1    300    98.61    0    0    1    1    0    230    1    1.1    0.9;
+0027     3    2    300    98.61    0    0    1    1    0    230    1    1.1    0.9;
+0028     4    3    400    131.47    0    0    1    1    0    230    1    1.1    0.9;
+0029     5    2    0    0    0    0    1    1    0    230    1    1.1    0.9;
+0030 ];
+0031 
+0032 <span class="comment">%% generator data</span>
+0033 <span class="comment">%    bus    Pg    Qg    Qmax    Qmin    Vg    mBase    status    Pmax    Pmin    Pc1    Pc2    Qc1min    Qc1max    Qc2min    Qc2max    ramp_agc    ramp_10    ramp_30    ramp_q    apf</span>
+0034 mpc.gen = [
+0035     1    40    0    30    -30    1    100    1    40    0    0    0    0    0    0    0    0    0    0    0    0;
+0036     1    170    0    127.5    -127.5    1    100    1    170    0    0    0    0    0    0    0    0    0    0    0    0;
+0037     3    323.49    0    390    -390    1    100    1    520    0    0    0    0    0    0    0    0    0    0    0    0;
+0038     4    0    0    150    -150    1    100    1    200    0    0    0    0    0    0    0    0    0    0    0    0;
+0039     5    466.51    0    450    -450    1    100    1    600    0    0    0    0    0    0    0    0    0    0    0    0;
+0040 ];
+0041 
+0042 <span class="comment">%% branch data</span>
+0043 <span class="comment">%    fbus    tbus    r    x    b    rateA    rateB    rateC    ratio    angle    status    angmin    angmax</span>
+0044 mpc.branch = [
+0045     1    2    0.00281    0.0281    0.00712    400    400    400    0    0    1    -360    360;
+0046     1    4    0.00304    0.0304    0.00658    0    0    0    0    0    1    -360    360;
+0047     1    5    0.00064    0.0064    0.03126    0    0    0    0    0    1    -360    360;
+0048     2    3    0.00108    0.0108    0.01852    0    0    0    0    0    1    -360    360;
+0049     3    4    0.00297    0.0297    0.00674    0    0    0    0    0    1    -360    360;
+0050     4    5    0.00297    0.0297    0.00674    240    240    240    0    0    1    -360    360;
+0051 ];
+0052 
+0053 <span class="comment">%%-----  OPF Data  -----%%</span>
+0054 <span class="comment">%% generator cost data</span>
+0055 <span class="comment">%    1    startup    shutdown    n    x1    y1    ...    xn    yn</span>
+0056 <span class="comment">%    2    startup    shutdown    n    c(n-1)    ...    c0</span>
+0057 mpc.gencost = [
+0058     2    0    0    2    14    0;
+0059     2    0    0    2    15    0;
+0060     2    0    0    2    30    0;
+0061     2    0    0    2    40    0;
+0062     2    0    0    2    10    0;
+0063 ];</pre></div>
+<hr><address>Generated on Mon 26-Jan-2015 15:21:31 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" title="MATPOWER Documentation in HTML">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>
